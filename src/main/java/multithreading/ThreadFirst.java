@@ -10,9 +10,6 @@ public class ThreadFirst extends Thread {
     @Override
     public void run() {
         while (counter.getValue() < 100) {
-            if (counter.getValue() % 2 == 0) {
-                yield();
-            }
             counter.increment();
             System.out.println("First thread is running. Value: " + counter.getValue());
         }
