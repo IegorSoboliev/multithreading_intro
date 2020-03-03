@@ -2,6 +2,7 @@ package multithreading;
 
 public class ThreadFirst extends Thread {
     private Counter counter;
+    private static final int LIMIT = 100;
 
     public ThreadFirst(Counter counter) {
         this.counter = counter;
@@ -9,14 +10,9 @@ public class ThreadFirst extends Thread {
 
     @Override
     public void run() {
-        while (counter.getValue() < 100) {
+        while (counter.getValue() < LIMIT) {
             counter.increment();
             System.out.println("First thread is running. Value: " + counter.getValue());
         }
-    }
-
-    @Override
-    public synchronized void start() {
-        super.start();
     }
 }
